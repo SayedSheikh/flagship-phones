@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Root from "./Root/Root.jsx";
 import Home from "./Pages/Home.jsx";
+import Details from "./Components/Details.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,12 @@ const router = createBrowserRouter([
         Component: Home,
         loader: () => fetch("/phones.json"),
         hydrateFallbackElement: <p>Loading...</p>,
+      },
+      {
+        path: "phone/:id",
+        Component: Details,
+        loader: () => fetch("/phones.json"),
+        hydrateFallbackElement: <p>Loading..</p>,
       },
       {
         path: "cart",
