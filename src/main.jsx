@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Root from "./Root/Root.jsx";
 import Home from "./Pages/Home.jsx";
 import Details from "./Components/Details.jsx";
+import Cart from "./Components/Cart.jsx";
+import Favorites from "./Components/Favorites.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,11 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "cart",
-        element: <p>Cart</p>,
+        Component: Cart,
       },
       {
         path: "favorites",
-        element: <p>favorites</p>,
+        Component: Favorites,
       },
     ],
   },

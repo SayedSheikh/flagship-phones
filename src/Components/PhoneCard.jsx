@@ -1,10 +1,11 @@
 import React from "react";
+import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router";
 
-const PhoneCard = ({ phone }) => {
+const PhoneCard = ({ phone, isCart, handleDelete }) => {
   const navigate = useNavigate();
   return (
-    <div className="card bg-base-100 shadow-sm">
+    <div className="card bg-base-100 shadow-sm h-fit relative">
       <figure>
         <img src={phone.image} alt="Shoes" />
       </figure>
@@ -23,6 +24,16 @@ const PhoneCard = ({ phone }) => {
           </button>
         </div>
       </div>
+
+      {isCart && (
+        <div
+          onClick={() => handleDelete(phone)}
+          className="absolute  rounded-full -right-2 -top-2 cursor-pointer">
+          <MdDelete
+            size={30}
+            className="p-[4px] rounded-full text-gray-700 bg-gray-400 hover:bg-gray-700 hover:text-gray-400"></MdDelete>
+        </div>
+      )}
     </div>
   );
 };
