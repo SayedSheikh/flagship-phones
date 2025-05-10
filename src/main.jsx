@@ -10,6 +10,8 @@ import Cart from "./Components/Cart.jsx";
 import Favorites from "./Components/Favorites.jsx";
 import CartProvider from "./Contexts/CartProvider.jsx";
 import { ToastContainer } from "react-toastify";
+import About from "./Pages/About.jsx";
+import Loader from "./Components/Loader.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,13 +23,13 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: () => fetch("/phones.json"),
-        hydrateFallbackElement: <p>Loading...</p>,
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "phone/:id",
         Component: Details,
         loader: () => fetch("/phones.json"),
-        hydrateFallbackElement: <p>Loading..</p>,
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "cart",
@@ -36,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "favorites",
         Component: Favorites,
+      },
+      {
+        path: "about",
+        Component: About,
       },
     ],
   },

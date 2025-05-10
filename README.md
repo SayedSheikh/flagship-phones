@@ -1,12 +1,32 @@
-# React + Vite
+# 📱 Flagship Phones
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React web application showcasing a collection of flagship smartphones with dynamic routing, clean UI, and intuitive user experience.
 
-Currently, two official plugins are available:
+## 🚀 Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 [flagshipphones.surge.sh](https://flagshipphones.surge.sh)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- 🔍 **View All Phones**: Browse a list of flagship smartphones with key details.
+- 📄 **Dynamic Routing**: View individual phone details via dynamic URL paths (e.g., `/phones/1`).
+- 🛒 **Add to Cart**: Save selected phones to a local storage–based cart.
+- 🔁 **Persisted Cart Data**: Cart information persists on page reloads using `localStorage`.
+- 🔔 **Toast Notifications**: Feedback via toast messages when actions (like adding to cart) occur.
+- 🌐 **SPA with React Router**: Smooth client-side navigation without page reloads.
+- 🎨 **Modern UI**: Responsive and styled using Tailwind CSS + DaisyUI.
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** – UI Library
+- **React Router DOM** – Client-side routing
+- **Tailwind CSS + DaisyUI** – Styling
+- **localStorage** – Cart data persistence
+- **React Toastify** – Notification system
+- **Surge** – Static site hosting
+
+---

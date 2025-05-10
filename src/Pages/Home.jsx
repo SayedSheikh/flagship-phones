@@ -48,7 +48,7 @@ const Home = () => {
           <input
             className="w-2/3 h-12 px-4 mb-3  bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:outline-none focus:shadow-outline"
             type="text"
-            placeholder="Search Phone"
+            placeholder="Search Phone by Model or Brand"
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
