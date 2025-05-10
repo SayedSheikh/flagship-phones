@@ -1,9 +1,18 @@
-import React from "react";
+import React, { use, useEffect } from "react";
 import { IoMdCart } from "react-icons/io";
 import { MdBookmarkAdd } from "react-icons/md";
 import { NavLink } from "react-router";
+import { CartContext } from "../Contexts/CartContext";
+import { getCartFromLocal } from "../Utilities/localStorage";
 
 const Navbar = () => {
+  const { cartAmount, setCartAmount } = use(CartContext);
+
+  useEffect(() => {
+    const amount = getCartFromLocal().length;
+    setCartAmount(amount);
+  }, [setCartAmount]);
+
   const links = (
     <>
       <li>
@@ -20,18 +29,21 @@ const Navbar = () => {
           About
         </NavLink>
       </li>
-      <li className="h-fit">
+      <li className="h-fit relative">
         <NavLink
           to="/cart"
-          className={({ isActive }) => `${isActive && "text-blue-400"}`}>
-          <IoMdCart />
+          className={({ isActive }) => `${isActive && "text-blue-400"} `}>
+          <IoMdCart size={20} />
+          <p className="absolute -top-[5px] right-1 text-black font-semibold">
+            {cartAmount > 0 && cartAmount}
+          </p>
         </NavLink>
       </li>
       <li className="h-fit">
         <NavLink
           to="/favorites"
           className={({ isActive }) => `${isActive && "text-blue-400"}`}>
-          <MdBookmarkAdd />
+          <MdBookmarkAdd size={20} />
         </NavLink>
       </li>
     </>

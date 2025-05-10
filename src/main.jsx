@@ -8,6 +8,8 @@ import Home from "./Pages/Home.jsx";
 import Details from "./Components/Details.jsx";
 import Cart from "./Components/Cart.jsx";
 import Favorites from "./Components/Favorites.jsx";
+import CartProvider from "./Contexts/CartProvider.jsx";
+import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,13 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <CartProvider>
+      <RouterProvider router={router}></RouterProvider>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        className="!top-[70px] !right-0 fixed z-50"
+      />
+    </CartProvider>
   </StrictMode>
 );

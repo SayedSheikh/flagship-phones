@@ -1,14 +1,17 @@
-import React from "react";
+import React, { use } from "react";
 import { useLoaderData, useParams } from "react-router";
 import Button from "./Button";
 import {
+  getCartFromLocal,
   saveCartToLocal,
   saveFavoritesToLocal,
 } from "../Utilities/localStorage";
+import { CartContext } from "../Contexts/CartContext";
 
 const Details = () => {
   const data = useLoaderData();
   const { id } = useParams();
+  const { setCartAmount } = use(CartContext);
 
   const phone = data.find((item) => item.id === parseInt(id));
 
@@ -21,10 +24,15 @@ const Details = () => {
         <h1 className="text-4xl self-start">{phone.name}</h1>
         <div className="self-end flex gap-3">
           <Button
-            onClick={() => saveFavoritesToLocal(phone)}
+            onClick={() => {
+              saveFavoritesToLocal(phone);
+            }}
             label={"Favorite"}></Button>
           <Button
-            onClick={() => saveCartToLocal(phone)}
+            onClick={() => {
+              saveCartToLocal(phone);
+              setCartAmount(getCartFromLocal().length);
+            }}
             label={"Cart"}></Button>
         </div>
       </div>
